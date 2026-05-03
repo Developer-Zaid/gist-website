@@ -133,7 +133,6 @@ export default function Navbar() {
             ✕
           </button>
         </div>
-
         {/* LINKS */}
         <div className="flex flex-col gap-6 p-6 text-lg font-medium">
           {[

@@ -1,5 +1,5 @@
 import pool from '@/lib/db';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export async function POST(req: Request) {
@@ -28,6 +28,6 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.log('LOGIN ERROR:', error);
-    return Response.json({ error: 'Login failed' }, { status: 500 });
+    return Response.json({ error: String(error) }, { status: 500 });
   }
 }
