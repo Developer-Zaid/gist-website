@@ -1,6 +1,10 @@
 import pool from '@/lib/db';
-import { writeFile } from 'fs/promises';
-import path from 'path';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 export async function POST(req: Request) {
   try {
@@ -52,17 +56,21 @@ export async function POST(req: Request) {
     validateFile(cnicImage, 'CNIC Image');
 
     // =========================
-    // SAVE FILE
+    // SAVE FILE (SUPABASE FIX)
     // =========================
     const saveFile = async (file: File) => {
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
-
       const fileName = Date.now() + '_' + file.name;
-      const filePath = path.join(process.cwd(), 'public/uploads', fileName);
 
-      await writeFile(filePath, buffer);
-      return fileName;
+      const { error } = await supabase.storage.from('uploads').upload(fileName, file);
+
+      if (error) {
+        console.log('SUPABASE ERROR:', error);
+        throw new Error('Upload failed');
+      }
+
+      const { data } = supabase.storage.from('uploads').getPublicUrl(fileName);
+
+      return data.publicUrl;
     };
 
     const photoName = await saveFile(photo);
@@ -72,7 +80,7 @@ export async function POST(req: Request) {
     const cnicName = await saveFile(cnicImage);
 
     // =========================
-    // DUPLICATE CHECK (FIXED)
+    // DUPLICATE CHECK
     // =========================
     const check = await pool.query('SELECT * FROM admissions WHERE email = $1', [email]);
 
@@ -81,7 +89,7 @@ export async function POST(req: Request) {
     }
 
     // =========================
-    // INSERT INTO DB (FIXED)
+    // INSERT INTO DB
     // =========================
     await pool.query(
       `INSERT INTO admissions
