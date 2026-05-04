@@ -1,6 +1,5 @@
 import pool from '@/lib/db';
 import bcrypt from 'bcryptjs';
-
 export async function POST(req: Request) {
   try {
     const { name, email, password, phone } = await req.json();
