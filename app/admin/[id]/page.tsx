@@ -48,24 +48,31 @@ export default function StudentDetails() {
         <p>
           <b>Name:</b> {student.name}
         </p>
+
         <p>
           <b>Email:</b> {student.email}
         </p>
+
         <p>
           <b>Contact:</b> {student.contact}
         </p>
+
         <p>
           <b>Parent Contact:</b> {student.parentcontact}
         </p>
+
         <p>
           <b>CNIC:</b> {student.cnic}
         </p>
+
         <p>
           <b>Course:</b> {student.course}
         </p>
+
         <p>
           <b>Mode:</b> {student.mode}
         </p>
+
         <p>
           <b>Status:</b> {student.status}
         </p>
@@ -77,37 +84,41 @@ export default function StudentDetails() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-4">
           <div>
             <p className="mb-2 text-sm">Photo</p>
+
             <img
-              src={`/uploads/${student.photo}`}
+              src={student.photo}
               className="w-full h-32 object-cover rounded-lg border cursor-pointer"
-              onClick={() => window.open(`/uploads/${student.photo}`, '_blank')}
+              onClick={() => window.open(student.photo, '_blank')}
             />
           </div>
 
           <div>
             <p className="mb-2 text-sm">Fee Slip</p>
+
             <img
-              src={`/uploads/${student.feeslip}`}
+              src={student.feeslip}
               className="w-full h-32 object-cover rounded-lg border cursor-pointer"
-              onClick={() => window.open(`/uploads/${student.feeslip}`, '_blank')}
+              onClick={() => window.open(student.feeslip, '_blank')}
             />
           </div>
 
           <div>
             <p className="mb-2 text-sm">Domicile</p>
+
             <img
-              src={`/uploads/${student.domicile}`}
+              src={student.domicile}
               className="w-full h-32 object-cover rounded-lg border cursor-pointer"
-              onClick={() => window.open(`/uploads/${student.domicile}`, '_blank')}
+              onClick={() => window.open(student.domicile, '_blank')}
             />
           </div>
 
           <div>
             <p className="mb-2 text-sm">Marksheet</p>
+
             <img
-              src={`/uploads/${student.marksheet}`}
+              src={student.marksheet}
               className="w-full h-32 object-cover rounded-lg border cursor-pointer"
-              onClick={() => window.open(`/uploads/${student.marksheet}`, '_blank')}
+              onClick={() => window.open(student.marksheet, '_blank')}
             />
           </div>
         </div>
