@@ -6,6 +6,8 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
+console.log('ADMISSION API HIT');
+
 export async function POST(req: Request) {
   try {
     const formData = await req.formData();
