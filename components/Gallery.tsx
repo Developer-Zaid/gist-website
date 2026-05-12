@@ -3,45 +3,44 @@
 import Image from 'next/image';
 
 const galleryData = [
-  { src: '/images/8.JPEG', title: 'GIST Building', desc: 'Modern campus in Sukkur' },
+  { src: '/images/8.jpeg', title: 'GIST Building', desc: 'Modern campus in Sukkur' },
   {
-    src: '/images/4.JPEG',
+    src: '/images/4.jpeg',
     title: 'Office / Administration',
     desc: 'Management and student support services',
   },
   {
-    src: '/images/5.JPEG',
+    src: '/images/5.jpeg',
     title: 'Help Desk',
     desc: 'Guidance and admission support for students',
   },
   {
-    src: '/images/6.JPEG',
+    src: '/images/6.jpeg',
     title: 'Training Classroom',
     desc: 'Interactive and comfortable learning space',
   },
-  { src: '/images/9.JPEG', title: 'Computer Lab', desc: 'Fully equipped systems for students' },
+  { src: '/images/9.jpeg', title: 'Computer Lab', desc: 'Fully equipped systems for students' },
   {
-    src: '/images/7.JPEG',
+    src: '/images/7.jpeg',
     title: 'Class Room',
     desc: 'Spacious environment for theory sessions',
   },
   {
-    src: '/images/3.JPEG',
+    src: '/images/3.jpeg',
     title: 'Advanced IT Lab',
     desc: 'Hands-on practical training environment',
   },
   {
-    src: '/images/1.JPEG',
+    src: '/images/1.jpeg',
     title: 'Conference Room',
     desc: 'Meetings, discussions and presentations',
   },
   {
-    src: '/images/2.JPEG',
+    src: '/images/2.jpeg',
     title: 'Learning Environment',
     desc: 'Professional and inspiring setup',
   },
 ];
-
 export default function Gallery() {
   return (
     <section id="gallery" className="py-20 bg-black text-white px-10">
