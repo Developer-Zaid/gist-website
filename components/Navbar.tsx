@@ -31,11 +31,11 @@ export default function Navbar() {
         {/* LOGO + NAME */}
         <div className="flex items-center gap-3 group cursor-pointer">
           <Image
-            src="/logo.JPEG"
+            src="/images/logo.jpeg"
             alt="logo"
-            width={42}
-            height={42}
-            className="rounded-full border border-white/20 group-hover:scale-105 transition"
+            width={35}
+            height={35}
+            className="rounded-full"
           />
 
           <span className="text-[11px] sm:text-sm md:text-base font-semibold tracking-wide group-hover:text-red-400 transition">
@@ -55,7 +55,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.path}
-              className={`relative transition ${
+              className={`relative group transition ${
                 isActive(item.path) ? 'text-red-400' : 'hover:text-red-400'
               }`}
             >
