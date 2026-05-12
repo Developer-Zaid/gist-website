@@ -114,41 +114,38 @@ export default function Navbar() {
       {/* OVERLAY */}
       {menuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+          className="lg:hidden fixed inset-0 bg-black/70 z-[998]"
           onClick={() => setMenuOpen(false)}
         />
       )}
 
       {/* MOBILE DRAWER */}
       <div
-        className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-black/95 backdrop-blur-xl z-50 transform transition-transform duration-300 shadow-2xl ${
+        className={`lg:hidden fixed top-0 right-0 h-screen w-[75%] max-w-[320px] bg-black z-[999] transform transition-transform duration-300 ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* HEADER */}
-        <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between px-4 py-5 border-b border-white/10">
+          <div className="flex items-center gap-3">
             <Image
               src="/images/logo.jpeg"
               alt="logo"
-              width={35}
-              height={35}
+              width={38}
+              height={38}
               className="rounded-full"
             />
 
-            <span className="text-sm font-semibold">GIST</span>
+            <span className="text-white font-semibold text-lg">GIST</span>
           </div>
 
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="text-2xl hover:text-red-400 transition"
-          >
+          <button onClick={() => setMenuOpen(false)} className="text-white text-3xl">
             ✕
           </button>
         </div>
 
         {/* LINKS */}
-        <div className="flex flex-col gap-6 p-6 text-lg font-medium">
+        <div className="flex flex-col px-6 py-8 gap-6 text-lg font-medium bg-black min-h-full">
           {[
             { name: 'Home', path: '/' },
             { name: 'About', path: '/about' },
@@ -162,7 +159,7 @@ export default function Navbar() {
               href={item.path}
               onClick={() => setMenuOpen(false)}
               className={`transition ${
-                isActive(item.path) ? 'text-red-400' : 'hover:text-red-400'
+                isActive(item.path) ? 'text-red-400' : 'text-white hover:text-red-400'
               }`}
             >
               {item.name}
@@ -171,20 +168,35 @@ export default function Navbar() {
 
           {!isLoggedIn ? (
             <>
-              <Link href="/login" onClick={() => setMenuOpen(false)}>
+              <Link
+                href="/login"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-red-400"
+              >
                 Login
               </Link>
 
-              <Link href="/register" onClick={() => setMenuOpen(false)}>
+              <Link
+                href="/register"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-red-400"
+              >
                 Register
               </Link>
             </>
           ) : (
             <>
-              <Link href="/dashboard" onClick={() => setMenuOpen(false)}>
+              <Link
+                href="/dashboard"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-red-400"
+              >
                 Dashboard
               </Link>
-              <button onClick={handleLogout}>Logout</button>
+
+              <button onClick={handleLogout} className="text-left text-white hover:text-red-400">
+                Logout
+              </button>
             </>
           )}
         </div>
