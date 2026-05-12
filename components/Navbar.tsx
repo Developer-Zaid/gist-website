@@ -104,7 +104,7 @@ export default function Navbar() {
 
         {/* HAMBURGER */}
         <button
-          className="lg:hidden text-2xl z-50 hover:text-red-400 transition"
+          className="lg:hidden text-3xl z-50 hover:text-red-400 transition"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? '✕' : '☰'}
@@ -114,14 +114,14 @@ export default function Navbar() {
       {/* OVERLAY */}
       {menuOpen && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+          className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
           onClick={() => setMenuOpen(false)}
         />
       )}
 
       {/* MOBILE DRAWER */}
       <div
-        className={`fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-black/95 backdrop-blur-xl z-50 transform transition-transform duration-300 shadow-2xl ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-black/95 backdrop-blur-xl z-50 transform transition-transform duration-300 shadow-2xl ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
