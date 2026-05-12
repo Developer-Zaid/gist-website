@@ -24,12 +24,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-screen flex flex-col bg-black text-white">
+      <body className="min-h-screen flex flex-col bg-black text-white overflow-x-hidden">
         {/* 🔝 NAVBAR */}
         <Navbar />
 
         {/* 📄 PAGE CONTENT */}
-        <main className="flex-1 bg-black">{children}</main>
+        <main className="flex-1 bg-black overflow-x-hidden">{children}</main>
 
         {/* 🔻 FOOTER */}
         <Footer />
