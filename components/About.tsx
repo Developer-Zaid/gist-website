@@ -82,7 +82,7 @@ export default function About() {
         {/* RIGHT IMAGE */}
         <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black flex items-center justify-center">
           <Image
-            src="/images/8.JPEG"
+            src="/images/8.jpeg"
             alt="GIST Institute"
             fill
             className="object-contain"

@@ -33,9 +33,9 @@ export default function Navbar() {
           <Image
             src="/images/logo.jpeg"
             alt="logo"
-            width={35}
-            height={35}
-            className="rounded-full"
+            width={42}
+            height={42}
+            className="rounded-full border border-white/20 group-hover:scale-105 transition"
           />
 
           <span className="text-[11px] sm:text-sm md:text-base font-semibold tracking-wide group-hover:text-red-400 transition">
@@ -44,11 +44,12 @@ export default function Navbar() {
         </div>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex gap-8 font-medium">
+        <div className="hidden lg:flex gap-8 font-medium">
           {[
             { name: 'Home', path: '/' },
             { name: 'About', path: '/about' },
             { name: 'Courses', path: '/courses' },
+            { name: 'Gallery', path: '/#gallery' },
             { name: 'Faculty', path: '/#faculty' },
             { name: 'Contact', path: '/contact' },
           ].map((item) => (
@@ -68,7 +69,7 @@ export default function Navbar() {
         </div>
 
         {/* DESKTOP AUTH */}
-        <div className="hidden md:flex gap-3">
+        <div className="hidden lg:flex gap-3">
           {!isLoggedIn ? (
             <>
               <Link href="/login">
@@ -103,13 +104,14 @@ export default function Navbar() {
 
         {/* HAMBURGER */}
         <button
-          className="md:hidden text-2xl z-50 hover:text-red-400 transition"
+          className="lg:hidden text-2xl z-50 hover:text-red-400 transition"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? '✕' : '☰'}
         </button>
       </div>
 
+      {/* OVERLAY */}
       {menuOpen && (
         <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
@@ -119,26 +121,39 @@ export default function Navbar() {
 
       {/* MOBILE DRAWER */}
       <div
-        className={`fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-black/95 backdrop-blur-xl z-50 transform transition-transform duration-300 shadow-2xl
-  ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-black/95 backdrop-blur-xl z-50 transform transition-transform duration-300 shadow-2xl ${
+          menuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
         {/* HEADER */}
         <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
           <div className="flex items-center gap-2">
-            <Image src="/logo.JPEG" alt="logo" width={35} height={35} className="rounded-full" />
+            <Image
+              src="/images/logo.jpeg"
+              alt="logo"
+              width={35}
+              height={35}
+              className="rounded-full"
+            />
+
             <span className="text-sm font-semibold">GIST</span>
           </div>
 
-          <button onClick={() => setMenuOpen(false)} className="text-2xl hover:text-red-400">
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="text-2xl hover:text-red-400 transition"
+          >
             ✕
           </button>
         </div>
+
         {/* LINKS */}
         <div className="flex flex-col gap-6 p-6 text-lg font-medium">
           {[
             { name: 'Home', path: '/' },
             { name: 'About', path: '/about' },
             { name: 'Courses', path: '/courses' },
+            { name: 'Gallery', path: '/#gallery' },
             { name: 'Faculty', path: '/#faculty' },
             { name: 'Contact', path: '/contact' },
           ].map((item) => (
@@ -159,6 +174,7 @@ export default function Navbar() {
               <Link href="/login" onClick={() => setMenuOpen(false)}>
                 Login
               </Link>
+
               <Link href="/register" onClick={() => setMenuOpen(false)}>
                 Register
               </Link>
@@ -168,6 +184,7 @@ export default function Navbar() {
               <Link href="/dashboard" onClick={() => setMenuOpen(false)}>
                 Dashboard
               </Link>
+
               <button onClick={handleLogout}>Logout</button>
             </>
           )}
