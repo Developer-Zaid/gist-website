@@ -121,9 +121,9 @@ export default function Navbar() {
 
       {/* MOBILE DRAWER */}
       <div
-        className={`lg:hidden fixed top-0 right-0 h-screen w-[280px] bg-black z-[999] transition-transform duration-300 ease-in-out ${
-          menuOpen ? 'translate-x-0' : 'translate-x-[100%]'
-        }`}
+        className={`lg:hidden fixed top-0 ${
+          menuOpen ? 'right-0' : '-right-full'
+        } h-screen w-[280px] bg-black z-[999] transition-all duration-300 ease-in-out`}
       >
         {/* HEADER */}
         <div className="flex items-center justify-between px-4 py-5 border-b border-white/10">
