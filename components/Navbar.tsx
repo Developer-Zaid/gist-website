@@ -121,8 +121,8 @@ export default function Navbar() {
 
       {/* MOBILE DRAWER */}
       <div
-        className={`lg:hidden fixed top-0 right-0 h-screen w-[75%] max-w-[320px] bg-black z-[999] transform transition-transform duration-300 ${
-          menuOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`lg:hidden fixed top-0 right-0 h-screen w-[280px] bg-black z-[999] transition-transform duration-300 ease-in-out ${
+          menuOpen ? 'translate-x-0' : 'translate-x-[100%]'
         }`}
       >
         {/* HEADER */}
@@ -139,7 +139,10 @@ export default function Navbar() {
             <span className="text-white font-semibold text-lg">GIST</span>
           </div>
 
-          <button onClick={() => setMenuOpen(false)} className="text-white text-3xl">
+          <button
+            className="lg:hidden text-4xl text-white z-[1000] hover:text-red-400 transition"
+            onClick={() => setMenuOpen(false)}
+          >
             ✕
           </button>
         </div>
