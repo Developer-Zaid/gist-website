@@ -184,7 +184,6 @@ export default function Navbar() {
               <Link href="/dashboard" onClick={() => setMenuOpen(false)}>
                 Dashboard
               </Link>
-
               <button onClick={handleLogout}>Logout</button>
             </>
           )}
